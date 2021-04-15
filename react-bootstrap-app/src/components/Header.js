@@ -3,6 +3,7 @@ import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
 import FindDoctor from './FindDoctor'
 import DoctorSearch from './DoctorSearch'
+import Paypal from './Paypal'
 
 
 class Header extends React.Component
@@ -29,6 +30,8 @@ class Header extends React.Component
                     <div className="content">
                         <Route exact path="/find-a-doctor" component={ FindDoctor } />
                         <Route path="/doctor-search" component={ DoctorSearch } />
+                        <Route path="/book-appoinment" component={Paypal} />
+                        
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}
                     </div>

@@ -23,7 +23,6 @@ class Header extends React.Component
                             {/* <Route exact path="/" component={ Home } /> */}
                             <Nav.Link href="#find-a-doctor">Find Doctor</Nav.Link>
                             <Nav.Link href="#doctor-search">Doctor Search</Nav.Link>
-                            <Nav.Link href="#book-appoinment">Book Appoinment</Nav.Link>
                             <Nav.Link href="#book-appoinment-final">Book appoinment Final</Nav.Link>
                             <Nav.Link href="#sign-in">Sign In</Nav.Link>
                             <Nav.Link href="#sign-up">Sign Up</Nav.Link>

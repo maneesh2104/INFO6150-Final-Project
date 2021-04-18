@@ -21,6 +21,8 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import PayPal from './Paypal';
+import { useHistory } from 'react-router-dom';
 
 
 function Copyright() {
@@ -69,6 +71,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const history = useHistory();
+  const handleClick = () => {
+      console.log("I am here")
+      history.push('/book-appoinment');
+    }
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -137,9 +145,12 @@ export default function SignInSide() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={() => {handleClick()}}
             >
               Pay Now
             </Button>
+
+            
             
             <Box mt={5}>
               <Copyright />

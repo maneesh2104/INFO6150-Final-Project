@@ -10,10 +10,12 @@ class DoctorSearch extends React.Component
     render ()
     {
         return (
-                <dov>
-                    <h4>Doctor Search Page</h4>
+                <div>
+                    <br/>
+                    <br/>
+                    <h1>Doctor Search Page</h1>
 
-                </dov>
+                </div>
 
         )
 

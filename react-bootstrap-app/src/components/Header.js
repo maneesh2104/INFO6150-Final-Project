@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
 import FindDoctor from './FindDoctor'
 import DoctorSearch from './DoctorSearch'
 import Paypal from './Paypal'
+import BookingPage from './BookingPage'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
 
 
 class Header extends React.Component
@@ -21,6 +24,10 @@ class Header extends React.Component
                             <Nav.Link href="#find-a-doctor">Find Doctor</Nav.Link>
                             <Nav.Link href="#doctor-search">Doctor Search</Nav.Link>
                             <Nav.Link href="#book-appoinment">Book Appoinment</Nav.Link>
+                            <Nav.Link href="#book-appoinment-final">Book appoinment Final</Nav.Link>
+                            <Nav.Link href="#sign-in">Sign In</Nav.Link>
+                            <Nav.Link href="#sign-up">Sign Up</Nav.Link>
+                            
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -31,7 +38,9 @@ class Header extends React.Component
                         <Route exact path="/find-a-doctor" component={ FindDoctor } />
                         <Route path="/doctor-search" component={ DoctorSearch } />
                         <Route path="/book-appoinment" component={Paypal} />
-                        
+                        <Route path="/book-appoinment-final" component={BookingPage} />
+                        <Route path="/sign-in" component={SignIn} />      
+                        <Route path="/sign-up" component={SignUp} />                                         
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}
                     </div>

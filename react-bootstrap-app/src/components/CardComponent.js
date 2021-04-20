@@ -50,9 +50,7 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
+ 
   allignment:{
       backgroundColor: "blue",
       justifyContent: "center"
@@ -106,7 +104,7 @@ export default function RecipeReviewCard() {
       </CardContent>
       <CardActions classes={{root: classes.root}, {alignment: classes.allignment}} disableSpacing>
         <div className="button-wrapper">
-        <Button  variant="contained" color="secondary" onClick={handleExpandClick}>
+        <Button  variant="contained" color="primary" onClick={handleExpandClick}>
         Show Available Timings
     </Button>
         </div>

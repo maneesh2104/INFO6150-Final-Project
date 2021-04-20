@@ -5,6 +5,10 @@ import FindDoctor from './FindDoctor'
 import DoctorSearch from './DoctorSearch'
 import Paypal from './Paypal'
 import styled from 'styled-components';
+import Login from './Login'
+import Signup from './Signup'
+import NoAccount from './NoAccount'
+
 
 const Styles=styled.div `
     .navbar {
@@ -51,11 +55,17 @@ class Header extends React.Component
                         
                         
                     </Navbar>
+                    
+                    <div className="account">
+                        <Route path="/" component={NoAccount} />
+                    </div>
+
                     <div className="content">
                         <Route exact path="/find-a-doctor" component={FindDoctor} />
                         <Route exact path="/doctor-search" component={ DoctorSearch } />
                         <Route exact path="/book-appoinment" component={Paypal} />
-                        
+                        <Route path="/login" component={Login}/>
+                        <Route path="/signup" component={Signup}/>
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}
                     </div>

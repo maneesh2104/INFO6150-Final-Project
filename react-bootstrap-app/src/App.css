@@ -50,3 +50,9 @@
   padding: 100px;
   border-radius: 10px;
 }
+
+.button-wrapper{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

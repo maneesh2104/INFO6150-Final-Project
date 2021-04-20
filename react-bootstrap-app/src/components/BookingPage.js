@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://s3-eu-west-1.amazonaws.com/intercare-web-public/wysiwyg-uploads%2F1569586526901-doctor.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -67,6 +67,20 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  ta: {
+    marginTop: "15px",
+    paddingLeft: "15px",
+    paddingTop: "10px",
+    width: "100%",
+    fontSize: "15pxu"
+  },
+  docform: {
+    // marginLeft: "6%"
+  },
+  doccard: {
+    margin: "3%"
+  }
+  
 }));
 
 export default function SignInSide() {
@@ -79,16 +93,16 @@ export default function SignInSide() {
 
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid elevation={2} container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid xs={6}>
+      <Grid className={classes.doccard} xs={6}>
           <div>
               
               <CardComponent/>
               
           </div>
       </Grid>
-    <Grid item xs={6} sm={8} md={5} component={Paper} elevation={6} square>
+    <Grid className={classes.docform}  item xs={6} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
 
           <Typography component="h1" variant="h5">
@@ -137,7 +151,7 @@ export default function SignInSide() {
               autoComplete="current-password"
             />
 
-            <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Message to doctor" />
+            <TextareaAutosize className={classes.ta} aria-label="minimum height" rowsMin={3} cols={47} placeholder="Message to doctor" />
 
             <Button
               type="submit"

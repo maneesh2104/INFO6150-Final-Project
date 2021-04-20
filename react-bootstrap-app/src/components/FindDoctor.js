@@ -10,12 +10,10 @@ class FindDoctor extends React.Component
     render ()
     {
         return (
-                <dov>
+                <div>
                     <h4>Second Page</h4>
-                </dov>
-
+                </div>
         )
-
     }
 }
 

@@ -26,15 +26,19 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import { Autorenew } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 700,
-    paddingLeft: 10,
+    // paddingLeft: 10,
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+    paddingRight: "100%",
+    paddingLeft: "-100px",
+    width: "100%"
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -52,6 +56,13 @@ const useStyles = makeStyles((theme) => ({
   allignment:{
       backgroundColor: "blue",
       justifyContent: "center"
+  },
+
+  header:{
+    width: "100%",
+    textAlign: "center",
+    // marginLeft: "auto",
+    // marginRight: "auto"
   }
 }));
 
@@ -78,16 +89,14 @@ export default function RecipeReviewCard() {
     <Card className={classes.root}>
       <CardHeader
 
-        action={
-          <IconButton aria-label="settings">
-          </IconButton>
-        }
         title="Dr. Nakul Deshpande"
         subheader="MD FRCS"
-      />
+        className={classes.header}
+        />
+
       <CardMedia
         className={classes.media}
-        image="https://images.alphacoders.com/665/thumb-1920-665165.png"
+        image="https://s3-eu-west-1.amazonaws.com/intercare-web-public/wysiwyg-uploads%2F1569586526901-doctor.jpg"
         title="Paella dish"
       />
       <CardContent>
@@ -96,9 +105,12 @@ export default function RecipeReviewCard() {
         </Typography>
       </CardContent>
       <CardActions classes={{root: classes.root}, {alignment: classes.allignment}} disableSpacing>
-      <Button variant="contained" color="secondary" onClick={handleExpandClick}>
+        <div className="button-wrapper">
+        <Button  variant="contained" color="secondary" onClick={handleExpandClick}>
         Show Available Timings
     </Button>
+        </div>
+
 
        
       </CardActions>

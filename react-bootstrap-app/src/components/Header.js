@@ -66,6 +66,7 @@ class Header extends React.Component
                         <Route exact path="/book-appoinment" component={Paypal} />
                         <Route path="/login" component={Login}/>
                         <Route path="/signup" component={Signup}/>
+                        <Route path="/no" component={NoAccount} />
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}
                     </div>

@@ -2,11 +2,11 @@ import React from 'react'
 import { Jumbotron, Card, CardDeck, Carousel } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
-import bgimage from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/jumbotron_image.jpeg';
-import genimage from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/general.jpg';
-import c1 from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/c4.jpg';
-import c2 from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/c2.jpg';
-import c3 from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/c3.jpg';
+import bgimage from './../assets/jumbotron_image.jpeg';
+import genimage from './../assets/general.jpg';
+import c1 from './../assets/c4.jpg';
+import c2 from './../assets/c2.jpg';
+import c3 from './../assets/c3.jpg';
 import styled from 'styled-components';
 import * as Icon from 'react-bootstrap-icons';
 const Styles = styled.div`

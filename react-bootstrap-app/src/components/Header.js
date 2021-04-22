@@ -7,7 +7,10 @@ import Paypal from './Paypal'
 import BookingPage from './BookingPage'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import SignUpDoctor from './SignUpDoctor'
+import SignUpPatient from './SignUpPatient'
 import Twillio from './Twillio'
+
 
 class Header extends React.Component
 {
@@ -39,8 +42,10 @@ class Header extends React.Component
                         <Route path="/doctor-search" component={ DoctorSearch } />
                         <Route path="/book-appoinment" component={Paypal} />
                         <Route path="/book-appoinment-final" component={BookingPage} />
-                        <Route path="/sign-in" component={SignIn} />      
-                        <Route path="/sign-up" component={SignUp} />
+                        <Route path="/sign-in" component={SignIn} />     
+                        <Route path="/sign-up" component={SignUp} />  
+                        <Route path="/sign-up-doc" component={SignUpDoctor} />
+                        <Route path="/sign-up-pat" component={SignUpPatient} />
                         <Route path="/twillio" component={Twillio} />                                         
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}

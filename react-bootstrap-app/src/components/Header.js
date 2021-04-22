@@ -2,7 +2,12 @@ import React from 'react'
 import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
 import FindDoctor from './FindDoctor'
-import DoctorSearch from './DoctorSearch'
+import DocSearch from './DocSearch'
+import Paypal from './Paypal'
+import BookingPage from './BookingPage'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
+import Twillio from './Twillio'
 
 
 class Header extends React.Component
@@ -28,7 +33,12 @@ class Header extends React.Component
                     </Navbar>
                     <div className="content">
                         <Route exact path="/find-a-doctor" component={ FindDoctor } />
-                        <Route path="/doctor-search" component={ DoctorSearch } />
+                        <Route path="/doctor-search" component={ DocSearch } />
+                        <Route path="/book-appoinment" component={Paypal} />
+                        <Route path="/book-appoinment-final" component={BookingPage} />
+                        <Route path="/sign-in" component={SignIn} />      
+                        <Route path="/sign-up" component={SignUp} />
+                        <Route path="/twillio" component={Twillio} />                                         
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}
                     </div>

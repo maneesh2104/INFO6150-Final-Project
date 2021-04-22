@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,17 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
-import { useHistory } from 'react-router-dom';
-
 
 function Copyright() {
-  
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -35,7 +26,6 @@ function Copyright() {
   );
 }
 
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -47,85 +37,17 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
-  
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 export default function SignUp() {
-  const [open, setOpen] = React.useState(false);
-  const history = useHistory();
   const classes = useStyles();
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  function updateEmail(str){
-
-    setEmail(str);
-  }
-
-  function updateLName(str){
-    setlName(str);
-  }
-
-  function updatefName(str){
-    setfName(str);
-  }
-
-  function updateEmail(str){
-    setEmail(str);
-  }
-
-  function updatePassword(str){
-    setPassword(str);
-  }
-
-//   {	"email": "maneesh.f@northeastern.edu",
-// 	"password": "dasddadD1",
-// 	"last_name": "d",
-// 	"first_name": "maneesh",
-// 	"phone": "8577072014"
-// }
-
-  function callSignUpApi(event){
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, password:password, last_name:lName, first_name: fName})
-  };
-  fetch('http://localhost:3000/user/signup', requestOptions)
-      .then(response => response.json())
-      .then(data => handleData(data));
-    event.preventDefault();
-
-  }
-
-  function handleData(data){
-    if(data.message){
-      handleClickOpen();
-    }
-    else{
-      history.push('/sign-in');
-    }
-
-  }
-
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -135,7 +57,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Doctor Sign up
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -146,10 +68,8 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                //ref="fname"
                 id="firstName"
                 label="First Name"
-                onChange={ (event) => updatefName(event.target.value) }
                 autoFocus
               />
             </Grid>
@@ -161,7 +81,6 @@ export default function SignUp() {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
-                onChange={ (event) => updateLName(event.target.value) }
                 autoComplete="lname"
               />
             </Grid>
@@ -170,11 +89,32 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                onChange={ (event) => updateEmail(event.target.value) }
+                id="phone"
+                label="Phone"
+                name="phone"
+                autoComplete="phone"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
                 autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="speciality"
+                label="Specialities"
+                name="speciality"
+                autoComplete="speciality"
               />
             </Grid>
             <Grid item xs={12}>
@@ -185,8 +125,19 @@ export default function SignUp() {
                 name="password"
                 label="Password"
                 type="password"
-                onChange={ (event) => updatePassword(event.target.value) }
                 id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password2"
+                label="Confirm Password"
+                type="password"
+                id="password2"
                 autoComplete="current-password"
               />
             </Grid>
@@ -203,44 +154,22 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={callSignUpApi}
           >
-            Sign up
-        </Button>
-        </form>
- 
-        <Grid container justify="flex-end">
+            Sign Up
+          </Button>
+          <Grid container justify="flex-end">
             <Grid item>
-            Already have an account?
-            <Link href="#sign-in" variant="body2">
-                {" Sign in"}
+            You are a patient.&nbsp;
+            <Link href="#sign-up-pat" variant="body2">
+                {"Click here"}
               </Link>
             </Grid>
           </Grid>
+        </form>
       </div>
       <Box mt={5}>
         <Copyright />
       </Box>
-      <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle id="alert-dialog-slide-title">{"Error!"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-              Please check the details and try again!
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Okay
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 }

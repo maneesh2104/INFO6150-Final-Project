@@ -21,8 +21,8 @@ import Slide from '@material-ui/core/Slide';
 import { useHistory } from 'react-router-dom';
 
 
+
 function Copyright() {
-  
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -35,7 +35,6 @@ function Copyright() {
   );
 }
 
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -47,7 +46,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
-  
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -95,19 +97,13 @@ export default function SignUp() {
     setPassword(str);
   }
 
-//   {	"email": "maneesh.f@northeastern.edu",
-// 	"password": "dasddadD1",
-// 	"last_name": "d",
-// 	"first_name": "maneesh",
-// 	"phone": "8577072014"
-// }
-
   function callSignUpApi(event){
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, password:password, last_name:lName, first_name: fName})
   };
+  
   fetch('http://localhost:3000/user/signup', requestOptions)
       .then(response => response.json())
       .then(data => handleData(data));
@@ -124,7 +120,6 @@ export default function SignUp() {
     }
 
   }
-
 
 
   return (
@@ -205,18 +200,16 @@ export default function SignUp() {
             className={classes.submit}
             onClick={callSignUpApi}
           >
-            Sign up
-        </Button>
-        </form>
- 
-        <Grid container justify="flex-end">
+            Sign Up
+          </Button>
+          <Grid container justify="flex-end">
             <Grid item>
-            Already have an account?
-            <Link href="#sign-in" variant="body2">
-                {" Sign in"}
+              <Link href="#" variant="body2">
+                Already have an account? Sign in
               </Link>
             </Grid>
           </Grid>
+        </form>
       </div>
       <Box mt={5}>
         <Copyright />

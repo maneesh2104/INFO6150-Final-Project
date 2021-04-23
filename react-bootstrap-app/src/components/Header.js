@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav, Navbar} from 'react-bootstrap';
 import { Route, HashRouter } from "react-router-dom";
 import FindDoctor from './FindDoctor'
-import DoctorSearch from './DoctorSearch'
+import DocSearch from './DocSearch'
 import Paypal from './Paypal'
 import BookingPage from './BookingPage'
 import SignIn from './SignIn'
@@ -35,6 +35,7 @@ const Styles=styled.div `
     }
 `;
 
+
 class Header extends React.Component
 {
 
@@ -62,9 +63,10 @@ class Header extends React.Component
                     <div className="content">
                         <Route exact path="/home-page" component={HomePage} />
                         <Route exact path="/find-a-doctor" component={FindDoctor} />
-                        <Route exact path="/doctor-search" component={ DoctorSearch } />
-                        <Route exact path="/book-appoinment" component={Paypal} />
+                        <Route exact path="/doctor-search" component={ DocSearch } />
+                        <Route exact path="/book-appoinment" component={BookingPage} />
                         <Route exact path="/sign-up" component={SignUp} />
+                        <Route exact path="/sign-in" component={SignIn} />
                         
                         {/* <Route path="/contatc" component={ Contact } />
                         <Route path="/jobs" component={ Jobs } /> */}

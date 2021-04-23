@@ -3,7 +3,12 @@ import { Jumbotron, Card, CardDeck, Carousel } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
 import bgimage from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/jumbotron_image.jpeg';
-import genimage from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/general.jpg';
+import genimage from '../assets/general1.jpeg'
+import denimage from '../assets/dental1.jpg';
+import eyeimage from '../assets/eye1.jpg';
+import heartimage from '../assets/heart2.jpeg';
+import skinimage from '../assets/skin.jpeg';
+import lungsimage from '../assets/lungs.jpeg';
 import c1 from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/c4.jpg';
 import c2 from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/c2.jpg';
 import c3 from '/Users/purva/Documents/GitHub/INFO6150-Final-Project/react-bootstrap-app/src/assets/c3.jpg';
@@ -25,7 +30,6 @@ class FindDoctor extends React.Component {
         return (
 
             <section>
-                <br></br>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -129,38 +133,38 @@ class FindDoctor extends React.Component {
                             </Card.Footer>
                         </Card>
                         <Card style={{ borderColor: "white", borderTopRightRadius: "50px", borderTopLeftRadius: "50px", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }} >
-                            <Card.Img variant="top" src={genimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
+                            <Card.Img variant="top" src={denimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
 
                             <Card.Footer style={{ backgroundColor: "white", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }}>
-                                <Card.Link href="#"><large><b>Dental</b></large></Card.Link>
+                                <Card.Link href="#"><large><b>Dentist</b></large></Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card style={{ borderColor: "white", borderTopRightRadius: "50px", borderTopLeftRadius: "50px", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }} >
-                            <Card.Img variant="top" src={genimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
+                            <Card.Img variant="top" src={eyeimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
 
                             <Card.Footer style={{ backgroundColor: "white", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }}>
-                                <Card.Link href="#"><large><b>Eyes</b></large></Card.Link>
+                                <Card.Link href="#"><large><b>Optomologist</b></large></Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card style={{ borderColor: "white", borderTopRightRadius: "50px", borderTopLeftRadius: "50px", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }} >
-                            <Card.Img variant="top" src={genimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
+                            <Card.Img variant="top" src={skinimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
 
                             <Card.Footer style={{ backgroundColor: "white", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }}>
-                                <Card.Link href="#"><large><b>Skin</b></large></Card.Link>
+                                <Card.Link href="#"><large><b>Dermatologist</b></large></Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card style={{ borderColor: "white", borderTopRightRadius: "50px", borderTopLeftRadius: "50px", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }} >
-                            <Card.Img variant="top" src={genimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
+                            <Card.Img variant="top" src={heartimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
 
                             <Card.Footer style={{ backgroundColor: "white", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }}>
-                                <Card.Link href="#"><large><b>Heart</b></large></Card.Link>
+                                <Card.Link href="#"><large><b>Cardiologist</b></large></Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card style={{ borderColor: "white", borderTopRightRadius: "50px", borderTopLeftRadius: "50px", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }} >
-                            <Card.Img variant="top" src={genimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
+                            <Card.Img variant="top" src={lungsimage} style={{ borderTopRightRadius: "50px", borderTopLeftRadius: "50px" }} />
 
                             <Card.Footer style={{ backgroundColor: "white", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }}>
-                                <Card.Link href="#" ><large><b>Bones</b></large></Card.Link>
+                                <Card.Link href="#" ><large><b>Pulmonary</b></large></Card.Link>
                             </Card.Footer>
                         </Card>
 
@@ -222,53 +226,7 @@ class FindDoctor extends React.Component {
                 <br></br>
                 <br></br>
 
-                <footer class="site-footer" style={{backgroundColor:"#7ad4e2"}}>
-                    <div class="container">
-                        <br></br>
-                        <br></br>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <h6>About</h6>
-                                <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
-                            </div>
-
-                            <div class="col-xs-6 col-md-3">
-                                <h6>Categories</h6>
-                                <ul class="footer-links">
-                                    <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                                    <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-                                    <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-                                    <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-                                    <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-
-                                </ul>
-                            </div>
-
-                            <div class="col-xs-6 col-md-3">
-                                <h6>Quick Links</h6>
-                                <ul class="footer-links">
-                                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                                    <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <hr></hr>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-         <a href="#">Scanfcode</a>.
-            </p>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </footer>
+                
 
 
             </section>

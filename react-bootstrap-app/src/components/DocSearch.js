@@ -142,9 +142,6 @@ export default function CustomizedTabs(props) {
   return (
     <div className={classes.root}>
       <div className={classes.demo1}>
-        <br/>
-        <br/>
-        <br/>
         <AntTabs value={value} onChange={handleChange} aria-label="ant example">
           <AntTab label="All Appointments" />
           <AntTab label="In-person" />
@@ -195,7 +192,7 @@ export default function CustomizedTabs(props) {
 
     <Grid item md={4}>
     
-    <DocMap></DocMap>
+    <DocMap location={props.location.state.detail} ></DocMap>
 
     </Grid>
 

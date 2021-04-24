@@ -82,8 +82,8 @@ export default function SignUp() {
     lastName: Yup.string().min(3, "Atleast 3 letters").required("Last name is required"),
     email: Yup.string().email("Enter Valid Email").required("Email is required"),
     password: Yup.string().min(8, "Atleast 8 characters").required("Password is required").matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      /^[A-Za-z]\w{7,14}$/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase and One Number"
     ),
     termsAndConditions:Yup.string().oneOf(["true"],"Accept Terms and Conditions")
   })
@@ -100,6 +100,7 @@ export default function SignUp() {
   const onSubmit = (values, props) => {
     console.log(values)
     console.log(props)
+    callSignUpApi(values)
     setTimeout(()=>{
       props.resetForm()
       props.setSubmitting(false)
@@ -125,10 +126,11 @@ export default function SignUp() {
   }
 
   function callSignUpApi(event) {
+    console.log(event.firstName)
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ first_name: fName, last_name: lName, email: email, password: password })
+      body: JSON.stringify({ first_name: event.firstName, last_name: event.lastName, email: event.email, password: event.password })
     };
 
     fetch('http://localhost:3000/user/signup', requestOptions)
@@ -147,12 +149,6 @@ export default function SignUp() {
     }
 
   }
-
-
-  
-
-
-
 
 return (
 
@@ -230,8 +226,6 @@ return (
                   id="password"
                   helperText={<ErrorMessage name="password" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
                   </ErrorMessage>}
-
-
                   autoComplete="current-password"
                 />
               </Grid>

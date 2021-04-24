@@ -92,8 +92,8 @@ export default function SignIn() {
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Enter Valid Email").required("Email is required"),
     password: Yup.string().min(8, "Atleast 8 characters").required("Password is required").matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      /^[A-Za-z]\w{7,14}$/,
+      "Mustbe between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter"
     ),
   })
   const initialValues = {
@@ -104,6 +104,7 @@ export default function SignIn() {
 
   }
   const onSubmit = (values, props) => {
+    console.log("In onSubmit")
     console.log(values)
   }
 
@@ -166,6 +167,7 @@ export default function SignIn() {
               id="email"
               label="Email Address"
               name="email"
+              onChange={ (event) => updateEmail(event.target.value) }
               autoComplete="email"
               autoFocus
               helperText={<ErrorMessage name="email" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
@@ -178,6 +180,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
+              onChange={ (event) => updatePassword(event.target.value) }
               label="Password"
               type="password"
               id="password"

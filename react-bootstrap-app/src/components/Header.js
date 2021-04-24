@@ -46,7 +46,7 @@ class Header extends React.Component
             <HashRouter>
                 <div className="App">
                     <Navbar  variant="light" expand="lg" fixed="top">
-                        <Navbar.Brand href="#home-page"><b>Practo</b></Navbar.Brand>
+                        <Navbar.Brand href="#"><b>Practo</b></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
                         <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
@@ -62,7 +62,7 @@ class Header extends React.Component
                         
                     </Navbar>
                     <div className="content">
-                        <Route exact path="/home-page" component={HomePage} />
+                        <Route exact path="/" component={HomePage} />
                         <Route exact path="/find-a-doctor" component={FindDoctor} />
                         <Route exact path="/doctor-search" component={ DocSearch } />
                         <Route exact path="/book-appoinment" component={BookingPage} />

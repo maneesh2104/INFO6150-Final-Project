@@ -55,6 +55,7 @@ class Header extends React.Component
                             <Nav.Item> <Nav.Link href="#doctor-search"><b>Doctor Search</b></Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#book-appoinment"><b>Book Appointment</b></Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#sign-up"><b>Sign up</b></Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link href="#sign-in"><b>Sign in</b></Nav.Link></Nav.Item>
                         </Nav>
                         </Navbar.Collapse>
                         

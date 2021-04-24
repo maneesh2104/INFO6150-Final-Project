@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Jumbotron, Card, CardDeck, Carousel } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
-import bgimage from '../assets/jumbotron_image.jpeg';
+import bgimage from '../assets/jumbo2.png';
 import genimage from '../assets/general1.jpeg'
 import denimage from '../assets/dental1.jpg';
 import eyeimage from '../assets/eye1.jpg';
@@ -82,40 +82,9 @@ class FindDoctor extends React.Component {
 
 
 
-                    <Jumbotron style={{ background: `url(${bgimage})`, backgroundSize: 'cover', fluid: "true", height: "450px", borderRadius: "15px", marginLeft: "10px", marginRight: "10px" }}>
+                    <Jumbotron style={{ background: `url(${bgimage})`, backgroundSize: 'cover', fluid: "true", height: "550px", borderRadius: "15px", marginLeft: "10px", marginRight: "10px" }}>
 
-                        <div class="row" >
-                            <div class="col-md-6 no-padding">
-
-                                <div class="js-cap-jumbotron jumbotron" style={{ backgroundColor: "white", opacity: 0.75, borderRadius: "15px" }}>
-                                    <div class="js-cap-jumbotron-inside">
-                                        <i class="calendar2check" style={{ fontSize: "80px" }}>
-                                            <Icon.Calendar2Check />
-                                        </i>
-                                        <h3>Book Appointment</h3>
-                                        <p class="cap-jumbotron-paragraph"><i>Schedule an appointment online with over 100,000 doctors.</i></p>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6 no-padding">
-                                <div class="js-cap-jumbotron jumbotron" style={{ backgroundColor: "white", opacity: 0.75, borderRadius: "15px" }}>
-                                    <div class="js-cap-jumbotron-inside">
-                                        <i class="cameravideo" style={{ fontSize: "80px" }}>
-                                            <Icon.CameraVideo />
-                                        </i>
-
-
-                                        <h3>Video Consultation</h3>
-                                        <p class="cap-jumbotron-paragraph"><i>Have a private online consultation with your doctor. </i></p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </Jumbotron>
                 </div>

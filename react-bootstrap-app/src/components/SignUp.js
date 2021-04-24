@@ -98,16 +98,16 @@ export default function SignUp() {
   }
 
   function callSignUpApi(event){
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, password:password, last_name:lName, first_name: fName})
-  };
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, password:password, last_name:lName, first_name: fName})
+      };
   
-  fetch('http://localhost:3000/user/signup', requestOptions)
-      .then(response => response.json())
-      .then(data => handleData(data));
-    event.preventDefault();
+      fetch('http://localhost:3000/user/signup', requestOptions)
+          .then(response => response.json())
+          .then(data => handleData(data));
+        event.preventDefault();
 
   }
 

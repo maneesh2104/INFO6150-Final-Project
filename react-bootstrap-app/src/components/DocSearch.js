@@ -121,8 +121,9 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function CustomizedTabs() {
+export default function CustomizedTabs(props) {
   const classes = useStyles();
+  //console.log(props.location.state.detail)
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -148,11 +149,11 @@ export default function CustomizedTabs() {
         </AntTabs>
     </div>
     <br></br>
-      
+
       
     <Grid container spacing={2} className={classes.mapGrid}>
     <Grid item md={8}>
-    {looper.map(name=>(
+    {props.location.state.detail.map(doc=>(
 
      
      <div>
@@ -167,9 +168,9 @@ export default function CustomizedTabs() {
         </div>
 
         <div className="docText">
-            <h5 >Dr. Brain Adams</h5>
-            <p>Cardiologist</p>
-            <p>1180 Beacon St, 6B, Brookline, MA, 02446</p>
+            <h5 >{doc.name}</h5>
+            <p>{doc.specality}</p>
+            <p>{doc.address}</p>
         </div>
 
       </div>

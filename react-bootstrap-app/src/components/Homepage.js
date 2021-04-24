@@ -63,6 +63,18 @@ max-height: 500px;
 
 class HomePage extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.firstCardClick = this.firstCardClick.bind(this);
+    }
+
+
+    firstCardClick() {
+        this.props.history.push({
+            pathname: '/find-a-doctor',
+          });
+    }
+
     render() {
         const mystyle = {
             background: `url(${c1})`,
@@ -88,6 +100,7 @@ class HomePage extends React.Component {
             backgroundPosition: 'center'
 
         };
+
         return (
             <div>
                 <div>
@@ -118,7 +131,7 @@ class HomePage extends React.Component {
 
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="card card-1" style={mystyle2}>
+                                    <div class="card card-1" onClick={this.firstCardClick} style={mystyle2}>
                                         <p><h3><span style={{ display: "block" }}>Search </span><span> Doctors</span></h3>
                             Search by name, location, speciality and more</p>
 
@@ -126,7 +139,7 @@ class HomePage extends React.Component {
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="card card-2" style={mystyle}>
+                                    <div class="card card-2" onClick={this.firstCardClick} style={mystyle}>
                                         <h3>Book Appointment</h3>
                                         <p>More ways than ever to get the care you need.</p>
 

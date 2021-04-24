@@ -81,7 +81,7 @@ export default function SignUp() {
     firstName: Yup.string().min(3, "Atleast 3 letters").required("First name is required"),
     lastName: Yup.string().min(3, "Atleast 3 letters").required("Last name is required"),
     email: Yup.string().email("Enter Valid Email").required("Email is required"),
-    password: Yup.string().min(8, "Atleast 8 characters").required("Password is required").matches(
+    password: Yup.string().min(7, "Atleast 7 characters").required("Password is required").matches(
       /^[A-Za-z]\w{7,14}$/,
       "Must Contain 8 Characters, One Uppercase, One Lowercase and One Number"
     ),
@@ -209,8 +209,6 @@ return (
                   label="Email Address"
                   helperText={<ErrorMessage name="email" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
                   </ErrorMessage>}
-
-
                   name="email"
                   autoComplete="email"
                 />

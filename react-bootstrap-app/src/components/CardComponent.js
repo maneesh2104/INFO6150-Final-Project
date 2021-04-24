@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -87,8 +87,8 @@ export default function RecipeReviewCard() {
     <Card className={classes.root}>
       <CardHeader
 
-        title="Dr. Nakul Deshpande"
-        subheader="MD FRCS"
+        title={props.name}
+        subheader={props.quali}
         className={classes.header}
         />
 
@@ -99,7 +99,7 @@ export default function RecipeReviewCard() {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-            Address: 69 WoodLawn St, Boston 02130
+            {props.address}
         </Typography>
       </CardContent>
       <CardActions classes={{root: classes.root}, {alignment: classes.allignment}} disableSpacing>

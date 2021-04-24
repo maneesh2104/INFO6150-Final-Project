@@ -22,6 +22,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormLabel from '@material-ui/core/FormLabel';
+
 
 
 function Copyright() {
@@ -66,6 +72,15 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  formControl: {
+    margin: theme.spacing(3),
+  },
+  button: {
+    margin: theme.spacing(1, 1, 0, 0),
+  },
+  radioBoxes: {
+    display: "inline"
+  }
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -77,13 +92,22 @@ export default function SignIn() {
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
   
-  
+  const [value, setValue] = React.useState('');
+  const [error, setError] = React.useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [helperText, setHelperText] = React.useState('Choose wisely');
+
   var request = require('request');
 
   const handleClickOpen = () => {
     setOpen(true);
+  };
+
+  const handleRadioChange = (event) => {
+    setValue(event.target.value);
+    setHelperText(' ');
+    setError(false);
   };
 
   const handleClose = () => {
@@ -105,6 +129,7 @@ export default function SignIn() {
   }
   const onSubmit = (values, props) => {
     console.log("In onSubmit")
+    callSignInApi(values)
     console.log(values)
   }
 
@@ -120,22 +145,34 @@ export default function SignIn() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, password:password})
+      body: JSON.stringify({ email: event.email, password:event.password})
   };
 
   fetch('http://localhost:3000/user/signin', requestOptions)
       .then(response => response.json())
-      .then(data => handleData(data));
+      .then(data => handleData(data, event));
     event.preventDefault();
 
   }
 
-  function handleData(data){
-    if(data.message){
-      handleClickOpen();
+  function handleData(data, event){
+    console.log(data)
+    if(value=="true"){
+      console.log("setting doctor email")
+      localStorage.setItem("doctor_email", event.email)
     }
     else{
-      history.push('/home-page');
+      console.log("Setting patient email")
+      console.log(value)
+      localStorage.setItem("patient_email", event.email)
+    }
+    if(data.message == "Sucessfully logged in"){
+      console.log("Setting local storage")
+      console.log(data.email)
+      history.push('/');
+    }
+    else{
+      handleClickOpen();
     }
 
   }
@@ -158,7 +195,13 @@ export default function SignIn() {
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
           {(props) => (
             <Form>
-          
+                  <FormControl component="fieldset" error={error} className={classes.formControl}>
+                <FormLabel component="legend">Are you a doctor?</FormLabel>
+                <RadioGroup aria-label="quiz" className={classes.radioBoxes} name="quiz" value={value} onChange={handleRadioChange}>
+                  <FormControlLabel value="true" control={<Radio />} label="Yes" />
+                  <FormControlLabel value="false" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
             <Field as={TextField}
               variant="outlined"
               margin="normal"
@@ -167,7 +210,7 @@ export default function SignIn() {
               id="email"
               label="Email Address"
               name="email"
-              onChange={ (event) => updateEmail(event.target.value) }
+              //onChange={ (event) => updateEmail(event.target.value) }
               autoComplete="email"
               autoFocus
               helperText={<ErrorMessage name="email" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
@@ -180,7 +223,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              onChange={ (event) => updatePassword(event.target.value) }
+              //onChange={ (event) => updatePassword(event.target.value) }
               label="Password"
               type="password"
               id="password"
@@ -199,7 +242,7 @@ export default function SignIn() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={callSignInApi}
+              //onClick={callSignInApi}
             >
               Sign In
             </Button>

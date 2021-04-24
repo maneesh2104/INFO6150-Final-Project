@@ -122,6 +122,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CustomizedTabs(props) {
+  console.log("local storge")
+  console.log(localStorage.getItem("patient_email"));
   const classes = useStyles();
   //console.log(props.location.state.detail)
   const [value, setValue] = React.useState(0);
@@ -133,9 +135,12 @@ export default function CustomizedTabs(props) {
   const looper = ['1','1','1','1','1',];
 
   const history = useHistory();
-  const handleClick = () => {
+  const handleClick = (doc) => {
       console.log("I am here")
-      history.push('/book-appoinment-final');
+      history.push({
+        pathname: '/book-appoinment',
+        state: { detail: doc}
+      })
     }
   
 
@@ -176,7 +181,7 @@ export default function CustomizedTabs(props) {
       </div>
 
         <div className={classes.root}>
-            <Button variant="contained" color="primary" className={classes.btnAppointment} onClick={() => {handleClick()}}>
+            <Button variant="contained" color="primary" className={classes.btnAppointment} onClick={() => {handleClick(doc)}}>
                 Book Appointment
             </Button>
         </div>

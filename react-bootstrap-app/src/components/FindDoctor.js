@@ -25,6 +25,7 @@ class FindDoctor extends React.Component {
 
     constructor(props){
         super(props);
+        console.log(localStorage.getItem("patient_email"));
         this.setState({
             search: ""
         })

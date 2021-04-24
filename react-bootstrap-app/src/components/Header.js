@@ -38,6 +38,18 @@ const Styles=styled.div `
 
 class Header extends React.Component
 {
+    constructor(props){
+        super(props)
+        this.state = {
+            email:""
+        }
+    }
+    componentDidMount(){
+        this.setState({
+            email: localStorage.getItem("patient_email")
+        }
+        )
+    }
 
     render ()
     {
@@ -52,8 +64,8 @@ class Header extends React.Component
                         <Nav className="ml-auto">
                             {/* <Route exact path="/" component={ Home } /> */}
                             <Nav.Item><Nav.Link href="#find-a-doctor"><b>Find Doctor</b></Nav.Link></Nav.Item>
-                            <Nav.Item> <Nav.Link href="#doctor-search"><b>Doctor Search</b></Nav.Link></Nav.Item>
-                            <Nav.Item><Nav.Link href="#book-appoinment"><b>Book Appointment</b></Nav.Link></Nav.Item>
+                            {/* <Nav.Item> <Nav.Link href="#doctor-search"><b>Doctor Search</b></Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link href="#book-appoinment"><b>Book Appointment</b></Nav.Link></Nav.Item> */}
                             <Nav.Item><Nav.Link href="#sign-up"><b>Sign up</b></Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#sign-in"><b>Sign in</b></Nav.Link></Nav.Item>
                         </Nav>

@@ -87,7 +87,8 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function SignInSide() {
+export default function SignInSide(props) {
+  console.log(props.location.state.detail)
   const classes = useStyles();
   const history = useHistory();
   const handleClick = () => {
@@ -95,6 +96,11 @@ export default function SignInSide() {
       history.push('/book-appoinment');
     }
 
+    const bookApp = () => {
+      console.log("Booking Appoinmnet")
+      
+      history.push('/book-appoinment');
+    }
 
   return (
     <div>
@@ -106,7 +112,7 @@ export default function SignInSide() {
           <div>
             
               
-              <CardComponent/>
+              <CardComponent name={props.location.state.detail.name} quali={props.location.state.detail.qualification} address={props.location.state.detail.address} />
               
           </div>
           
@@ -165,6 +171,17 @@ export default function SignInSide() {
             />
 
             <TextareaAutosize className={classes.ta} aria-label="minimum height" rowsMin={3} cols={47} placeholder="Message to doctor" />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={() => {bookApp()}}
+            >
+              Book appoinment
+            </Button>
 
             <Button
               type="submit"

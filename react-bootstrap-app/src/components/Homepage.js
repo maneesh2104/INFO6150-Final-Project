@@ -100,7 +100,7 @@ class HomePage extends React.Component {
                             <Jumbotron style={{ background: `url(${bgimage})`, backgroundSize: 'cover', fluid: "true", height: "520px" }}>
 
                                 <p>
-                                    <Button variant="primary" style={{ marginTop: '200px', marginRight: "1150px" }}>Learn more</Button>
+                                    <Button variant="primary" style={{ marginTop: '200px', marginRight: "950px" }}>Learn more</Button>
                                 </p>
                             </Jumbotron>
                         </div>

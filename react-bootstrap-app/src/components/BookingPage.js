@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(3, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -63,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -75,10 +76,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15pxu"
   },
   docform: {
-    // marginLeft: "6%"
+     height:"77%",
+     marginTop:"85px"
+     
   },
   doccard: {
-    margin: "3%"
+    margin: "3%",
+    marginTop:"85px"
   }
   
 }));
@@ -93,18 +97,27 @@ export default function SignInSide() {
 
 
   return (
-    <Grid elevation={2} container component="main" className={classes.root}>
+    <div>
+    
+    <Grid elevation={6} container component="main" className={classes.root}>
       <CssBaseline />
+      
       <Grid className={classes.doccard} xs={6}>
           <div>
+            
               
               <CardComponent/>
               
           </div>
+          
       </Grid>
-    <Grid className={classes.docform}  item xs={6} sm={8} md={5} component={Paper} elevation={6} square>
+      
+      
+    <Grid className={classes.docform}  item xs={6} sm={8} md={5} component={Paper} elevation={6} square> 
+    
         <div className={classes.paper}>
-
+        
+        
           <Typography component="h1" variant="h5">
             Few more details
           </Typography>
@@ -165,14 +178,26 @@ export default function SignInSide() {
             </Button>
 
             
-            
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>
 
     </Grid>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    
+    </div>
+    
   );
 }

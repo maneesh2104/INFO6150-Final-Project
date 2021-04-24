@@ -141,6 +141,9 @@ export default function CustomizedTabs() {
   return (
     <div className={classes.root}>
       <div className={classes.demo1}>
+        <br/>
+        <br/>
+        <br/>
         <AntTabs value={value} onChange={handleChange} aria-label="ant example">
           <AntTab label="All Appointments" />
           <AntTab label="In-person" />

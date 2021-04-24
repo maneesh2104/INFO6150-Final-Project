@@ -12,6 +12,7 @@ import SignUpPatient from './SignUpPatient'
 import Twillio from './Twillio'
 import styled from 'styled-components';
 import HomePage from './Homepage';
+import patientProfile from "./patientProfile";
 
 
 const Styles=styled.div `
@@ -56,6 +57,7 @@ class Header extends React.Component
                             <Nav.Item><Nav.Link href="#book-appoinment"><b>Book Appointment</b></Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#sign-up"><b>Sign up</b></Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#sign-in"><b>Sign in</b></Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link href="#patient-profile"><b>Patient Profile</b></Nav.Link></Nav.Item>
                         </Nav>
                         </Navbar.Collapse>
                         
@@ -68,6 +70,8 @@ class Header extends React.Component
                         <Route exact path="/book-appoinment" component={BookingPage} />
                         <Route exact path="/sign-up" component={SignUp} />
                         <Route exact path="/sign-in" component={SignIn} />
+                        <Route exact path="/patient-profile" component={patientProfile} />
+
                         <Route exact path="/twillio" component={Twillio} />
 
                         

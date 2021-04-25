@@ -12,6 +12,7 @@ import SignUpPatient from './SignUpPatient'
 import Twillio from './Twillio'
 import styled from 'styled-components';
 import HomePage from './Homepage';
+import patientProfile from "./patientProfile";
 
 
 const Styles=styled.div `
@@ -58,7 +59,7 @@ class Header extends React.Component
             <HashRouter>
                 <div className="App">
                     <Navbar  variant="light" expand="lg" fixed="top">
-                        <Navbar.Brand href="#"><b>Practo</b></Navbar.Brand>
+                        <Navbar.Brand href="#"><b>Cure Connect</b></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
                         <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
@@ -68,6 +69,7 @@ class Header extends React.Component
                             <Nav.Item><Nav.Link href="#book-appoinment"><b>Book Appointment</b></Nav.Link></Nav.Item> */}
                             <Nav.Item><Nav.Link href="#sign-up"><b>Sign up</b></Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#sign-in"><b>Sign in</b></Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link href="#twillio"><b>Video Consultation</b></Nav.Link></Nav.Item>
                         </Nav>
                         </Navbar.Collapse>
                         
@@ -80,6 +82,8 @@ class Header extends React.Component
                         <Route exact path="/book-appoinment" component={BookingPage} />
                         <Route exact path="/sign-up" component={SignUp} />
                         <Route exact path="/sign-in" component={SignIn} />
+                        <Route exact path="/patient-profile" component={patientProfile} />
+                        <Route exact path="/payment" component={Paypal} />
                         <Route exact path="/twillio" component={Twillio} />
 
                         
@@ -87,36 +91,33 @@ class Header extends React.Component
                         <Route path="/jobs" component={ Jobs } /> */}
                     </div>
                 </div>
-                <footer class="site-footer" style={{backgroundColor:"#7ad4e2"}}>
+                <footer class="site-footer" style={{backgroundColor:"#7AD4E2"}}>
                     <div class="container">
                         <br></br>
                         <br></br>
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
-                                <h6>About</h6>
-                                <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+                                <h6><b>About</b></h6>
+                                <p class="text-justify"><i>Cure Connect </i> is a web-application that can enable users to search a doctor, book appointment for an video or in-person consultation and pay through PayPal.
+                                </p>
+                                <h6><b>Contact Us</b></h6>
+                                <p  style={{textAlign:"center"}}>Northeastern University <br/>
+                                316 Huntington Avenue<br/>
+                                Boston, MA
+                                </p>
                             </div>
-
                             <div class="col-xs-6 col-md-3">
-                                <h6>Categories</h6>
-                                <ul class="footer-links">
-                                    <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                                    <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-                                    <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-                                    <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-                                    <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-
-                                </ul>
                             </div>
-
                             <div class="col-xs-6 col-md-3">
-                                <h6>Quick Links</h6>
-                                <ul class="footer-links">
-                                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                                    <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                                <h6 style={{textAlign:'left'}}><b>Upcoming Locations</b></h6>
+                                <ul class="footer-links" style={{listStyle:"none",textAlign:'left'}}>
+                                    <li>New York</li>
+                                    <li>San Francisco</li>
+                                    <li>Texas</li>
+                                    <li>Detroit</li>
+                                    <li>Illinois</li>
+                                    <li>Ohio</li>
+                                    <li>Arkansas</li>
                                 </ul>
                             </div>
                         </div>
@@ -124,13 +125,10 @@ class Header extends React.Component
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-         <a href="#">Scanfcode</a>.
+                            <div >
+                                <p style={{marginLeft:'400px'}} >Copyright &copy; 2021 All Rights Reserved Cure-Connect
             </p>
                             </div>
-
-
                         </div>
                     </div>
                 </footer>

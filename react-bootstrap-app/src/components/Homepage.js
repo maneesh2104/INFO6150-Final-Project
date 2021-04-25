@@ -66,12 +66,19 @@ class HomePage extends React.Component {
     constructor(props){
         super(props);
         this.firstCardClick = this.firstCardClick.bind(this);
+        this.thirdCardClickd = this.thirdCardClickd.bind(this);
     }
 
 
     firstCardClick() {
         this.props.history.push({
             pathname: '/find-a-doctor',
+          });
+    }
+
+    thirdCardClickd() {
+        this.props.history.push({
+            pathname: '/twillio',
           });
     }
 
@@ -146,7 +153,7 @@ class HomePage extends React.Component {
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="card card-3" style={mystyle3}>
+                                    <div class="card card-3" onClick={this.thirdCardClickd} style={mystyle3}>
                                         <h3>Video Consultation</h3>
                                         <p>Have a private online consultation with your doctor.</p>
 

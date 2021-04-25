@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Jumbotron, Card, CardDeck, Carousel } from 'react-bootstrap';
 import Image from "react-bootstrap/Image";
 import { BrowserRouter, Route, Link, HashRouter } from "react-router-dom";
-import bgimage from '../assets/jumbo2.png';
+import bgimage from '../assets/final2.png';
 import genimage from '../assets/general1.jpeg'
 import denimage from '../assets/dental1.jpg';
 import eyeimage from '../assets/eye1.jpg';
 import heartimage from '../assets/heart2.jpeg';
 import skinimage from '../assets/skin.jpeg';
 import lungsimage from '../assets/lungs.jpeg';
-import c1 from '../assets/c4.jpg';
-import c2 from '../assets/c2.jpg';
-import c3 from '../assets/c3.jpg';
+import c1 from '../assets/Untitled1.png';
+import c2 from '../assets/Untitled2.png';
+import c3 from '../assets/Untitled3.png';
 import styled from 'styled-components';
 import * as Icon from 'react-bootstrap-icons';
 import { event } from 'jquery';
@@ -23,31 +23,46 @@ const Styles = styled.div`
 
 class FindDoctor extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log(localStorage.getItem("patient_email"));
         this.setState({
             search: ""
         })
         this.searchButtonClicked = this.searchButtonClicked.bind(this);
-        
+
     }
 
-    searchButtonClicked(event){
+    searchButtonClicked(event) {
         event.preventDefault();
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ specality: this.state.search})
+            body: JSON.stringify({ specality: this.state.search })
         };
-    
+
         fetch('http://localhost:3000/doctor/search', requestOptions)
             .then(response => response.json())
-            .then(data => this.handleData(data));  
+            .then(data => this.handleData(data));
         console.log("Search clicked");
     }
 
-    updateLName(evt){
+    // searchButton(event) {
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ specality: event })
+    //     };
+
+    //     fetch('http://localhost:3000/doctor/search', requestOptions)
+    //         .then(response => response.json())
+    //         .then(data => this.handleData(data));
+    //     console.log("Search clicked");
+    // }
+
+    
+
+    updateLName(evt) {
         this.setState({
             search: evt
         })
@@ -55,20 +70,19 @@ class FindDoctor extends React.Component {
 
 
 
-    handleData(data){
+    handleData(data) {
         console.log(data);
-        if(data.message){
+        if (data.message) {
             //Show error
-          //handleClickOpen();
+            //handleClickOpen();
         }
-        else{
+        else {
             this.props.history.push({
                 pathname: '/doctor-search',
-                state: { detail: data}
-              })
-        //   history.push('/sign-in');
+                state: { detail: data }
+            })
         }
-    
+
     }
 
     render() {
@@ -83,41 +97,22 @@ class FindDoctor extends React.Component {
 
 
 
-                    <Jumbotron style={{ background: `url(${bgimage})`, backgroundSize: 'cover', fluid: "true", height: "550px", borderRadius: "15px", marginLeft: "10px", marginRight: "10px" }}>
-
-                        
-
-                    </Jumbotron>
-                </div>
-                <br></br>
-                
-               
-
-                <div class="search">
-                    <div class="row">
-                        <div class="col-lg-12 card-margin">
-                            <div class="card search-form">
-                                <div class="card-body p-0">
-                                    <form id="search-form">
+                    <Jumbotron style={{ background: `url(${bgimage})`, backgroundSize: 'cover', fluid: "true", height: "425px", borderRadius: "15px", marginLeft: "10px", marginRight: "10px" }}>
+                        <p style={{ textAlign: "left", diplay: 'block', marginTop: '50px', paddingLeft: "40px" }}> <h1><b>Quick and convenient care
+                        just<br></br> a click away</b></h1></p>
+                        <div class="search" style={{marginTop:"20px"}}>
+                    
+                                    <form id="search-form" className="bg-gray-200 p-5" style={{border:"2px", marginLeft:"1px"}}>
                                         <div class="row">
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="row no-gutters">
-                                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                                        <select class="form-control" id="exampleFormControlSelect1">
-                                                            <option>Location</option>
-                                                            <option>London</option>
-                                                            <option>Boston</option>
-                                                            <option>Mumbai</option>
-                                                            <option>New York</option>
-                                                            <option>Toronto</option>
-                                                            <option>Paris</option>
-                                                        </select>
-                                                    </div>
+                                                    
                                                     <div class="col-lg-8 col-md-6 col-sm-12 p-0">
-                                                        <input type="text" placeholder="Search..." class="form-control" id="search" name="search" onChange={ (event) => this.updateLName(event.target.value) }></input>
+                                                        <input type="text" placeholder="Type Speciality" class="form-control" id="search" name="search" onChange={(event) => this.updateLName(event.target.value)}></input>
                                                     </div>
-                                                    <div class="col-lg-1 col-md-3 col-sm-12 p-0">
-                                                        <button  class="btn btn-base"  onClick={ (event) => this.searchButtonClicked(event)}>
+                                                    <div >
+                                                        <button  class="btn btn-base" onClick={(event) => this.searchButtonClicked(event)} style={{backgroundColor:'#3c99fe',height:"60%"}}>
+                                                            Search 
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                                         </button>
                                                     </div>
@@ -125,18 +120,25 @@ class FindDoctor extends React.Component {
                                             </div>
                                         </div>
                                     </form>
-                                </div>
-                            </div>
                         </div>
-                    </div>
+                            
+                
+                        
 
 
+
+                    </Jumbotron>
                 </div>
-                <br></br>
-                
                 
 
-                <h3 style={{ padding: "20px", textAlign: "left", marginLeft: "20px" }}>Top Searched Specialities</h3>
+
+
+
+                <h3 style={{ padding: "20px", textAlign: "left", marginLeft: "50px" }}>Top Searched Specialities</h3>
+                
+               
+                <br>
+                </br>
                 <Styles>
                     <CardDeck style={{ borderColor: "white", paddingLeft: "30px", paddingRight: "30px" }}>
                         <Card style={{ borderColor: "white", borderTopRightRadius: "50px", borderTopLeftRadius: "50px", borderBottomRightRadius: "50px", borderBottomLeftRadius: "50px" }} >
@@ -186,13 +188,17 @@ class FindDoctor extends React.Component {
                 </Styles>
                 <br></br>
                 <br></br>
-                
-                <hr></hr>
-                <br></br>
                 <br></br>
                 
 
+                
+                
 
+
+                
+                <h3 style={{ padding: "20px", textAlign: "left", marginLeft: "50px" }}>Simplifying Healthcare</h3>
+                <br></br>
+                
                 <div class="container-fluid" >
                     <Carousel>
                         <Carousel.Item interval={2000}>
@@ -200,37 +206,28 @@ class FindDoctor extends React.Component {
                                 className="d-block w-100"
                                 src={c1}
                                 alt="First slide"
-                                style={{ height: "500px", borderRadius: "20px" }}
+                                style={{ height: "400px", borderRadius: "10px" }}
                             />
-                            <Carousel.Caption>
-                                <h3>First slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </Carousel.Caption>
+                            
                         </Carousel.Item>
                         <Carousel.Item interval={2000}>
                             <Image
                                 className="d-block w-100"
                                 src={c2}
                                 alt="Second slide"
-                                style={{ height: "500px", borderRadius: "20px" }}
+                                style={{ height: "400px", borderRadius: "10px" }}
                             />
-                            <Carousel.Caption>
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </Carousel.Caption>
+                            
                         </Carousel.Item>
                         <Carousel.Item interval={2000}>
                             <Image
                                 className="d-block w-100"
                                 src={c3}
                                 alt="Third slide"
-                                style={{ height: "500px", borderRadius: "20px" }}
+                                style={{ height: "400px", borderRadius: "10px" }}
 
                             />
-                            <Carousel.Caption>
-                                <h3 style={{ color: 'black' }}>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                            </Carousel.Caption>
+                            
                         </Carousel.Item>
                     </Carousel>
                 </div>
@@ -240,7 +237,7 @@ class FindDoctor extends React.Component {
                 <br></br>
                 <br></br>
 
-                
+
 
 
             </section>

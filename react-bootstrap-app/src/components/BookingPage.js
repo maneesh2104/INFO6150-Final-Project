@@ -20,6 +20,9 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { FormHelperText } from '@material-ui/core';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import PayPal from './Paypal';
 import { useHistory } from 'react-router-dom';
@@ -76,16 +79,33 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15pxu"
   },
   docform: {
-     height:"77%",
+     height:"90%",
      marginTop:"85px"
      
   },
   doccard: {
     margin: "3%",
-    marginTop:"85px"
+    marginTop:"85px",
+    
   }
   
 }));
+const initialValues = {
+  name: "",
+  age: '',
+  reason: '',
+  address: '',
+  msg:""
+
+}
+const validationSchema = Yup.object().shape({
+  name: Yup.string().min(3, "Atleast 3 letters").required("First name is required"),
+  age: Yup.number("Age should be in numbers").required("Age is required"),
+  reason: Yup.string().required("Reason is required"),
+  address: Yup.string().required("Address is required"),
+  
+  msg:Yup.string()
+})
 
 export default function SignInSide(props) {
   console.log(props.location.state.detail)
@@ -93,7 +113,7 @@ export default function SignInSide(props) {
   const history = useHistory();
   const handleClick = () => {
       console.log("I am here")
-      history.push('/book-appoinment');
+      history.push('/payment');
     }
 
     const bookApp = () => {
@@ -113,6 +133,8 @@ export default function SignInSide(props) {
             
               
               <CardComponent name={props.location.state.detail.name} quali={props.location.state.detail.qualification} address={props.location.state.detail.address} />
+              <br/>
+              <br/>
               
           </div>
           
@@ -127,61 +149,62 @@ export default function SignInSide(props) {
           <Typography component="h1" variant="h5">
             Few more details
           </Typography>
-          <form className={classes.form} noValidate>
-          <TextField
+          <Formik initialValues={initialValues} validationSchema={validationSchema} onClick={() => {handleClick()}}>
+          <Form >
+          <Field as={TextField}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="name"
               label="Patient Name"
               id="password"
               autoComplete="current-password"
+              helperText={<ErrorMessage name="name" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
+                  </ErrorMessage>}
             />
-            <TextField
+            <Field as={TextField}
               variant="outlined"
               margin="normal"
               required
               fullWidth
               id="email"
               label="Age"
-              name="email"
+              name="age"
               autoComplete="email"
               autoFocus
+              helperText={<ErrorMessage name="age" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
+                  </ErrorMessage>}
             />
-            <TextField
+            <Field as={TextField}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="reason"
               label="Reason"
               id="password"
               autoComplete="current-password"
+              helperText={<ErrorMessage name="reason" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
+                  </ErrorMessage>}
             />
-            <TextField
+            <Field as={TextField}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="address"
               label="Contact Address"
               id="password"
               autoComplete="current-password"
+              helperText={<ErrorMessage name="address" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
+                  </ErrorMessage>}
             />
 
-            <TextareaAutosize className={classes.ta} aria-label="minimum height" rowsMin={3} cols={47} placeholder="Message to doctor" />
+            <Field as={TextareaAutosize}  name="message" rowsMin={6} cols={75} placeholder="Message to doctor" 
+            helperText={<ErrorMessage name="msg" >{ msg => <div style={{ color: 'red' }}>{msg}</div> }
+            </ErrorMessage>}/>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={() => {bookApp()}}
-            >
-              Book appoinment
-            </Button>
 
             <Button
               type="submit"
@@ -195,11 +218,15 @@ export default function SignInSide(props) {
             </Button>
 
             
-          </form>
+          </Form>
+          </Formik>
         </div>
       </Grid>
 
     </Grid>
+    <br/>
+    <br/>
+    <br/>
     <br/>
     <br/>
     <br/>
